@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="D'Roadz Restaurant - Premium multi-cuisine dining on NH-44, Nanguneri. Perfect highway stop for families & travelers. Rated 4.4★ by 1500+ guests.">
+    <title>D'Roadz Restaurant | Premium Highway Dining in Nanguneri, Tamil Nadu</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --terracotta: #C85C3C;
+            --deep-terracotta: #A84426;
+            --warm-cream: #F5EFE6;
+            --sand: #E8DCC4;
+            --forest-green: #2D5016;
+            --sage-green: #6B8E4E;
+            --dark-charcoal: #2C2C2C;
+            --soft-white: #FEFEFE;
+            --gold-accent: #D4A574;
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Lexend', sans-serif;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-elevated: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-charcoal);
+            background: var(--soft-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .section {
+            padding: var(--spacing-xl) 0;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        
+        .accent-text {
+            color: var(--terracotta);
+            font-style: italic;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary {
+            background: var(--terracotta);
+            color: var(--soft-white);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .btn-primary:hover {
+            background: var(--deep-terracotta);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-elevated);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--soft-white);
+            border: 2px solid var(--soft-white);
+        }
+        
+        .btn-outline:hover {
+            background: var(--soft-white);
+            color: var(--terracotta);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 0;
+            background: transparent;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--soft-white);
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled .logo {
+            color: var(--terracotta);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--soft-white);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .navbar.scrolled .nav-links a {
+            color: var(--dark-charcoal);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--terracotta);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--soft-white);
+            margin: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled .mobile-menu-btn span {
+            background: var(--dark-charcoal);
+        }
+        
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--soft-white);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(44, 44, 44, 0.7) 0%,
+                rgba(200, 92, 60, 0.6) 100%);
+            z-index: 1;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, rgba(200, 92, 60, 0.1) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(200, 92, 60, 0.1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(200, 92, 60, 0.1) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(200, 92, 60, 0.1) 75%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23C85C3C" width="1200" height="800"/><g fill="%23A84426"><circle cx="200" cy="150" r="100" opacity="0.3"/><circle cx="900" cy="600" r="150" opacity="0.2"/><circle cx="1100" cy="200" r="80" opacity="0.25"/><circle cx="300" cy="700" r="120" opacity="0.2"/></g></svg>');
+            background-size: 50px 50px, 50px 50px, 50px 50px, 50px 50px, cover;
+            background-position: 0 0, 25px 0, 25px -25px, 0 25px, center;
+            animation: floatBackground 20s ease-in-out infinite;
+        }
+        
+        @keyframes floatBackground {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.05) translateY(-10px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: var(--spacing-md);
+            animation: heroFadeIn 1s ease-out;
+        }
+        
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            font-family: var(--font-display);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            opacity: 0.95;
+            animation: slideIn 1s ease-out 0.3s both;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 0.95;
+                transform: translateX(0);
+            }
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin: 1.5rem 0 2rem;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .rating-stars {
+            color: #FFD700;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        .scroll-indicator::after {
+            content: '⌄';
+            font-size: 2rem;
+            color: var(--soft-white);
+            opacity: 0.7;
+        }
+        
+        .about {
+            background: var(--warm-cream);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--soft-white);
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            color: var(--forest-green);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .about-text p {
+            margin-bottom: var(--spacing-md);
+            color: var(--dark-charcoal);
+        }
+        
+        .about-image {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%236B8E4E" width="800" height="600"/><g fill="%232D5016" opacity="0.3"><rect x="50" y="100" width="200" height="150" rx="10"/><circle cx="600" cy="400" r="80"/><rect x="300" y="350" width="250" height="180" rx="10"/><rect x="550" y="50" width="180" height="120" rx="10"/></g><g fill="%23F5EFE6" opacity="0.1"><circle cx="150" cy="450" r="60"/><circle cx="650" cy="150" r="40"/><circle cx="400" cy="100" r="50"/></g></svg>') center/cover;
+            z-index: 1;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--soft-white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-elevated);
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--terracotta);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--dark-charcoal);
+            font-weight: 400;
+        }
+        
+        .why-choose {
+            background: var(--soft-white);
+        }
+        
+        .why-choose h2 {
+            text-align: center;
+            color: var(--forest-green);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .feature-card {
+            background: var(--warm-cream);
+            padding: var(--spacing-md);
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(200, 92, 60, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--terracotta);
+            box-shadow: var(--shadow-elevated);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .feature-card h3 {
+            color: var(--forest-green);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--dark-charcoal);
+            font-size: 1rem;
+        }
+        
+        .menu {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--sage-green) 100%);
+            color: var(--soft-white);
+            position: relative;
+        }
+        
+        .menu::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect fill="url(%23dots)" width="1200" height="800"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .menu .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .menu h2 {
+            text-align: center;
+            color: var(--soft-white);
+        }
+        
+        .menu-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .menu-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .menu-category {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: var(--spacing-md);
+            transition: var(--transition);
+        }
+        
+        .menu-category:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-category h3 {
+            color: var(--gold-accent);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.8rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .item-info {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .veg-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #4CAF50;
+            background: #4CAF50;
+            border-radius: 2px;
+        }
+        
+        .non-veg-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #F44336;
+            background: #F44336;
+            border-radius: 2px;
+        }
+        
+        .item-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+        
+        .signature-badge {
+            display: inline-block;
+            background: var(--gold-accent);
+            color: var(--dark-charcoal);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+        
+        .gallery {
+            background: var(--sand);
+        }
+        
+        .gallery h2 {
+            text-align: center;
+            color: var(--forest-green);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .gallery-item {
+            position: relative;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(44, 44, 44, 0.7) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-elevated);
+        }
+        
+        .gallery-item-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-item-bg {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:nth-child(1) .gallery-item-bg {
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%23C85C3C" width="600" height="400"/><g fill="%23D4A574"><circle cx="300" cy="200" r="120" opacity="0.4"/><circle cx="300" cy="200" r="80" opacity="0.3"/><circle cx="300" cy="200" r="50" opacity="0.5"/></g><text x="300" y="220" font-family="Arial" font-size="48" fill="%23FEFEFE" text-anchor="middle" opacity="0.9">BIRYANI</text></svg>') center/cover;
+        }
+        
+        .gallery-item:nth-child(2) .gallery-item-bg {
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%236B8E4E" width="600" height="400"/><g fill="%23F5EFE6"><rect x="100" y="100" width="400" height="200" rx="20" opacity="0.3"/><circle cx="300" cy="200" r="60" opacity="0.4"/></g><text x="300" y="220" font-family="Arial" font-size="40" fill="%23FEFEFE" text-anchor="middle" opacity="0.9">TANDOORI</text></svg>') center/cover;
+        }
+        
+        .gallery-item:nth-child(3) .gallery-item-bg {
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%23A84426" width="600" height="400"/><g fill="%23E8DCC4"><rect x="50" y="50" width="500" height="300" rx="15" opacity="0.2"/><rect x="150" y="120" width="120" height="160" rx="10" opacity="0.3"/><rect x="330" y="120" width="120" height="160" rx="10" opacity="0.3"/></g><text x="300" y="220" font-family="Arial" font-size="36" fill="%23FEFEFE" text-anchor="middle" opacity="0.9">DINING HALL</text></svg>') center/cover;
+        }
+        
+        .gallery-item:nth-child(4) .gallery-item-bg {
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%232D5016" width="600" height="400"/><g fill="%23D4A574"><circle cx="200" cy="150" r="40" opacity="0.4"/><circle cx="400" cy="150" r="40" opacity="0.4"/><circle cx="300" cy="250" r="50" opacity="0.5"/></g><text x="300" y="220" font-family="Arial" font-size="38" fill="%23FEFEFE" text-anchor="middle" opacity="0.9">DESSERTS</text></svg>') center/cover;
+        }
+        
+        .gallery-item:nth-child(5) .gallery-item-bg {
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%23E8DCC4" width="600" height="400"/><g fill="%232D5016"><path d="M150,200 Q200,100 250,200 T350,200" stroke="%232D5016" stroke-width="3" fill="none" opacity="0.3"/><circle cx="450" cy="200" r="80" opacity="0.2"/></g><text x="300" y="220" font-family="Arial" font-size="42" fill="%232D5016" text-anchor="middle" opacity="0.8">AMBIANCE</text></svg>') center/cover;
+        }
+        
+        .gallery-item:nth-child(6) .gallery-item-bg {
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><rect fill="%23C85C3C" width="600" height="400"/><g fill="%23FEFEFE"><rect x="100" y="120" width="80" height="160" rx="5" opacity="0.3"/><rect x="260" y="120" width="80" height="160" rx="5" opacity="0.3"/><rect x="420" y="120" width="80" height="160" rx="5" opacity="0.3"/></g><text x="300" y="220" font-family="Arial" font-size="38" fill="%23FEFEFE" text-anchor="middle" opacity="0.9">EXTERIOR</text></svg>') center/cover;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--spacing-md);
+            color: var(--soft-white);
+            z-index: 2;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .reviews {
+            background: var(--soft-white);
+        }
+        
+        .reviews h2 {
+            text-align: center;
+            color: var(--forest-green);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .review-card {
+            background: var(--warm-cream);
+            padding: var(--spacing-md);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border-left: 4px solid var(--terracotta);
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-elevated);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--terracotta), var(--gold-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-white);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .reviewer-info h4 {
+            color: var(--forest-green);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .review-stars {
+            color: #FFD700;
+            font-size: 1rem;
+        }
+        
+        .review-text {
+            color: var(--dark-charcoal);
+            font-style: italic;
+            line-height: 1.7;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .review-date {
+            color: var(--sage-green);
+            font-size: 0.85rem;
+            margin-top: var(--spacing-sm);
+            font-weight: 400;
+        }
+        
+        .location {
+            background: var(--warm-cream);
+        }
+        
+        .location h2 {
+            text-align: center;
+            color: var(--forest-green);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: start;
+        }
+        
+        .contact-info {
+            background: var(--soft-white);
+            padding: var(--spacing-md);
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: var(--spacing-md);
+            padding: var(--spacing-sm);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            background: var(--warm-cream);
+        }
+        
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--terracotta);
+            flex-shrink: 0;
+        }
+        
+        .contact-details h3 {
+            color: var(--forest-green);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-details p {
+            color: var(--dark-charcoal);
+            margin: 0.25rem 0;
+        }
+        
+        .contact-details a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .contact-details a:hover {
+            color: var(--deep-terracotta);
+            text-decoration: underline;
+        }
+        
+        .map-container {
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated);
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23E8DCC4" width="800" height="600"/><g fill="%23C85C3C" opacity="0.3"><path d="M400,250 L420,290 L465,295 L430,325 L440,370 L400,345 L360,370 L370,325 L335,295 L380,290 Z"/></g><text x="400" y="420" font-family="Arial" font-size="24" fill="%232D5016" text-anchor="middle">📍 D\'Roadz Restaurant</text><text x="400" y="450" font-family="Arial" font-size="18" fill="%236B8E4E" text-anchor="middle">NH-44, Nanguneri</text><text x="400" y="480" font-family="Arial" font-size="16" fill="%23A84426" text-anchor="middle">Click to view in Google Maps</text></svg>') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .map-container:hover {
+            transform: scale(1.02);
+        }
+        
+        .footer {
+            background: var(--dark-charcoal);
+            color: var(--soft-white);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .footer-section h3 {
+            color: var(--gold-accent);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: var(--spacing-sm);
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-white);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--terracotta);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .footer-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            color: var(--gold-accent);
+            margin-top: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+        
+        .floating-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 999;
+        }
+        
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-white);
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-elevated);
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .fab:hover {
+            transform: scale(1.1) translateY(-5px);
+        }
+        
+        .fab-call {
+            background: var(--terracotta);
+        }
+        
+        .fab-whatsapp {
+            background: #25D366;
+            animation-delay: 0.2s;
+        }
+        
+        @media (max-width: 968px) {
+            :root {
+                --spacing-xl: 4rem;
+                --spacing-lg: 3rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-content,
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            :root {
+                --spacing-xl: 3rem;
+                --spacing-lg: 2rem;
+            }
+            
+            .features-grid,
+            .menu-categories,
+            .gallery-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-actions {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .fab {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#hero" class="logo">D'Roadz</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-tagline">Your Perfect Highway Dining Destination</div>
+            <h1>D'Roadz Restaurant</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--font-display); font-weight: 300;">
+                Premium Multi-Cuisine Experience on NH-44
+            </p>
+            <div class="rating-badge">
+                <span class="rating-stars">★★★★</span>
+                <span>4.4 · 1,500+ Reviews</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+                <a href="https://maps.google.com/?q=D'Roadz+Restaurant+Nanguneri" target="_blank" class="btn btn-outline">Get Directions</a>
+                <a href="tel:+919876543210" class="btn btn-outline">Call Now</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Welcome to <span class="accent-text">D'Roadz</span></h2>
+                    <p>
+                        Nestled along the bustling NH-44 at Nanguneri Toll Plaza, D'Roadz Restaurant has become a beloved 
+                        sanctuary for travelers and families seeking more than just a meal—we offer an experience.
+                    </p>
+                    <p>
+                        Since our inception, we've been dedicated to serving authentic Indian flavors with a modern touch, 
+                        combining traditional recipes with contemporary culinary techniques. Our spacious, family-friendly 
+                        ambiance and commitment to quality have made us the preferred dining destination for highway travelers.
+                    </p>
+                    <p>
+                        Whether you're stopping for a quick refreshment or settling in for a leisurely family meal, 
+                        D'Roadz promises comfort, quality, and unforgettable flavors at every visit.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1500+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.4★</span>
+                            <span class="stat-label">Google Rating</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">7-11</span>
+                            <span class="stat-label">Open Daily</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose section" id="why-choose">
+        <div class="container">
+            <h2>Why Choose <span class="accent-text">D'Roadz?</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Ample Parking</h3>
+                    <p>Spacious parking area for cars, buses, and trucks. Safe and convenient for all vehicle types.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Friendly</h3>
+                    <p>Dedicated kids play area and comfortable seating arrangements perfect for families of all sizes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛣️</div>
+                    <h3>Highway Location</h3>
+                    <p>Strategically located on NH-44 at Nanguneri Toll Plaza for easy access and convenience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Clean & Spacious</h3>
+                    <p>Maintained to the highest hygiene standards with a spacious, well-ventilated dining hall.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">☕</div>
+                    <h3>Tea & Snacks Section</h3>
+                    <p>Separate area for quick refreshments, perfect for a short break during your journey.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Professional Staff</h3>
+                    <p>Friendly, courteous service team dedicated to making your dining experience memorable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu section" id="menu">
+        <div class="container">
+            <h2>Our <span style="color: var(--gold-accent);">Signature</span> Menu</h2>
+            <p class="menu-intro">
+                Discover our diverse range of authentic Indian and multi-cuisine delicacies, 
+                crafted with the finest ingredients and traditional cooking methods.
+            </p>
+            
+            <div class="menu-categories">
+                <div class="menu-category">
+                    <h3>South Indian Breakfast</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Masala Dosa
+                            </div>
+                            <div class="item-description">Crispy rice crepe with spiced potato filling</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Idli Sambar
+                            </div>
+                            <div class="item-description">Steamed rice cakes with lentil soup</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Pongal
+                            </div>
+                            <div class="item-description">Traditional rice and lentil porridge</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Vada
+                            </div>
+                            <div class="item-description">Crispy lentil donuts</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Biryanis</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="non-veg-indicator"></span>
+                                Chicken Biryani
+                                <span class="signature-badge">SIGNATURE</span>
+                            </div>
+                            <div class="item-description">Aromatic basmati rice with tender chicken</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="non-veg-indicator"></span>
+                                Mutton Biryani
+                            </div>
+                            <div class="item-description">Slow-cooked mutton with fragrant spices</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Vegetable Biryani
+                            </div>
+                            <div class="item-description">Mixed vegetables with saffron rice</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Tandoori Specials</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="non-veg-indicator"></span>
+                                Tandoori Chicken
+                            </div>
+                            <div class="item-description">Clay oven roasted chicken with spices</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Paneer Tikka
+                            </div>
+                            <div class="item-description">Grilled cottage cheese cubes</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="non-veg-indicator"></span>
+                                Chicken Tikka
+                            </div>
+                            <div class="item-description">Marinated chicken chunks, grilled to perfection</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Beverages & Desserts</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Tower Mint Juice
+                                <span class="signature-badge">SIGNATURE</span>
+                            </div>
+                            <div class="item-description">Refreshing mint drink served in tower glass</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Chocolate Cake
+                            </div>
+                            <div class="item-description">Rich, moist chocolate delight</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">
+                                <span class="veg-indicator"></span>
+                                Fruit Tarts
+                            </div>
+                            <div class="item-description">Fresh seasonal fruits on buttery crust</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <h2>Visual <span class="accent-text">Journey</span></h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-item-bg"></div>
+                    <div class="gallery-caption">
+                        <h4>Signature Biryani</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-bg"></div>
+                    <div class="gallery-caption">
+                        <h4>Tandoori Delights</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-bg"></div>
+                    <div class="gallery-caption">
+                        <h4>Spacious Dining Hall</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-bg"></div>
+                    <div class="gallery-caption">
+                        <h4>Sweet Endings</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-bg"></div>
+                    <div class="gallery-caption">
+                        <h4>Warm Ambiance</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-bg"></div>
+                    <div class="gallery-caption">
+                        <h4>Restaurant Exterior</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews section" id="reviews">
+        <div class="container">
+            <h2>What Our <span class="accent-text">Guests</span> Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">R</div>
+                        <div class="reviewer-info">
+                            <h4>Rajesh Kumar</h4>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Perfect stopover during our Chennai to Kanyakumari road trip! The biryani was exceptional, 
+                        and the kids loved the play area. Clean washrooms and ample parking made it stress-free."
+                    </p>
+                    <p class="review-date">2 weeks ago</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">P</div>
+                        <div class="reviewer-info">
+                            <h4>Priya Sharma</h4>
+                            <div class="review-stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Absolutely loved the family-friendly atmosphere. The staff was courteous, food quality was 
+                        top-notch, and the Tower Mint Juice is a must-try! Highly recommended for highway travelers."
+                    </p>
+                    <p class="review-date">1 month ago</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">V</div>
+                        <div class="reviewer-info">
+                            <h4>Vijay Anand</h4>
+                            <div class="review-stars">★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Great location on NH-44 with easy access. The tandoori items were delicious, and the ambiance 
+                        was comfortable. Perfect place to take a break during long drives."
+                    </p>
+                    <p class="review-date">3 weeks ago</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location section" id="location">
+        <div class="container">
+            <h2>Visit <span class="accent-text">Us</span></h2>
+            <div class="location-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Address</h3>
+                            <p>Nanguneri Toll Plaza</p>
+                            <p>Nanguneri, Tirunelveli</p>
+                            <p>Tamil Nadu - 627108, India</p>
+                            <p>On NH-44 Highway</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Contact</h3>
+                            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                            <p><a href="tel:+919876543211">+91 98765 43211</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-details">
+                            <h3>Opening Hours</h3>
+                            <p><strong>Open Daily</strong></p>
+                            <p>7:00 AM - 11:00 PM</p>
+                            <p style="color: var(--terracotta); font-weight: 500;">All days including holidays</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">💰</div>
+                        <div class="contact-details">
+                            <h3>Price Range</h3>
+                            <p>₹400 - ₹2,300 per person</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" onclick="window.open('https://maps.google.com/?q=D\'Roadz+Restaurant+Nanguneri+Toll+Plaza', '_blank')">
+                    <div style="text-align: center; color: var(--forest-green); padding: var(--spacing-md);">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📍</div>
+                        <h3>Click to Open in Google Maps</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>D'Roadz Restaurant</h3>
+                    <p>Your trusted dining destination on NH-44. Serving authentic Indian cuisine with warmth and hospitality since our inception.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="https://maps.google.com/?q=D'Roadz+Restaurant+Nanguneri" target="_blank" aria-label="Google Maps">🗺️</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about" style="color: var(--soft-white); text-decoration: none;">About Us</a></p>
+                    <p><a href="#menu" style="color: var(--soft-white); text-decoration: none;">Menu</a></p>
+                    <p><a href="#gallery" style="color: var(--soft-white); text-decoration: none;">Gallery</a></p>
+                    <p><a href="#reviews" style="color: var(--soft-white); text-decoration: none;">Reviews</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Location</h3>
+                    <p>Nanguneri Toll Plaza</p>
+                    <p>NH-44, Nanguneri</p>
+                    <p>Tirunelveli, Tamil Nadu</p>
+                    <p>India - 627108</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 D'Roadz Restaurant. All Rights Reserved.</p>
+                <p class="footer-tagline">"Perfect Highway Stop for Families & Travelers"</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-actions">
+        <a href="tel:+919876543210" class="fab fab-call" aria-label="Call now">📞</a>
+        <a href="https://wa.me/919876543210" target="_blank" class="fab fab-whatsapp" aria-label="WhatsApp">💬</a>
+    </div>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn?.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        const menuCategories = document.querySelectorAll('.menu-category');
+        menuCategories.forEach((category, index) => {
+            category.style.animationDelay = `${index * 0.15}s`;
+        });
+    </script>
+</body>
+</html>
